@@ -1,0 +1,84 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    display: grid;
+    justify-items:center;
+    align-items:center;
+    grid-row-gap: 0;
+    background-color: black;
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+  }
+  
+  #quote-box{
+    background-color:white;
+    display:flex;
+    flex-direction:column;
+    padding:30px;
+    width:550px;
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+  }
+  
+  #text{
+    background-color:white;
+    font-size:30px;
+    padding:10px;
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #quote{
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+  }
+  
+  #tweet{
+      color: white;
+      transition: 0.5s;
+      transition-timing-function: ease-in;
+  }
+
+  #new-quote{
+      background-color: white;
+      color: white;
+      font-size:15px;
+      border-radius: 5px;
+      cursor:pointer;
+      padding-bottom: 8px;
+      padding-top: 9px;
+      margin-top: 5px;
+  }
+
+  #new-quote:hover{
+    opacity: 0.6;
+}
+
+#tweet:hover{
+    opacity: 0.6;
+}
+
+
+  #author{
+    margin:10px;
+    align-self:flex-end;
+    font-size:20px;
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+  
+  @keyframes text-box{
+      from {opacity: 0;}
+      to {opacity: 1;}
+  }
+  
+ p{
+     margin-top: 5px;
+     text-align: center;
+ }
