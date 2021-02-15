@@ -1,76 +1,80 @@
-const data = ["The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
-"The way to get started is to quit talking and begin doing. -Walt Disney",
-"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking. -Steve Jobs",
-"If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt",
-"If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. -Oprah Winfrey",
-"If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success. -James Cameron",
-"Life is what happens when you're busy making other plans. -John Lennon","Spread love everywhere you go. Let no one ever come to you without leaving happier. -Mother Teresa",
-"When you reach the end of your rope, tie a knot in it and hang on. -Franklin D. Roosevelt",
-"Always remember that you are absolutely unique. Just like everyone else. -Margaret Mead",
-"Don't judge each day by the harvest you reap but by the seeds that you plant. -Robert Louis Stevenson",
-"The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt",
-"Tell me and I forget. Teach me and I remember. Involve me and I learn. -Benjamin Franklin",
-"The best and most beautiful things in the world cannot be seen or even touched, they must be felt with the heart. -Helen Keller",
-"It is during our darkest moments that we must focus to see the light. -Aristotle",
-"Whoever is happy will make others happy too. -Anne Frank",
-"Do not go where the path may lead, go instead where there is no path and leave a trail. -Ralph Waldo Emerson", 
-"You will face many defeats in life, but never let yourself be defeated. -Maya Angelou",
-"The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
-"In the end, it's not the years in your life that count. It's the life in your years. -Abraham Lincoln",
-"Never let the fear of striking out keep you from playing the game. -Babe Ruth",
-"Life is either a daring adventure or nothing at all. -Helen Keller",
-"Many of life's failures are people who did not realize how close they were to success when they gave up. -Thomas A. Edison",
-"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. -Dr. Seuss",
-"Success is not final; failure is not fatal: It is the courage to continue that counts. -Winston S. Churchill",
-"Success usually comes to those who are too busy to be looking for it. -Henry David Thoreau",
-"The way to get started is to quit talking and begin doing. -Walt Disney",
-"If you really look closely, most overnight successes took a long time. -Steve Jobs",
-"The secret of success is to do the common thing uncommonly well. -John D. Rockefeller Jr.",
-"I find that the harder I work, the more luck I seem to have. -Thomas Jefferson",
-"The real test is not whether you avoid this failure, because you won't. It's whether you let it harden or shame you into inaction, or whether you learn from it; whether you choose to persevere. -Barack Obama"]
+// Global Variable used to store the quotes fetched from the API
+var data;
 
-const colors = ["#4acf6e", "#55d4bf", "#54c0de", "#7186f0", "#9875eb", "#e66565", "#e36d9a", "#d9e874", "#e6bd6c", "#64d15a", "#665858", "#e6e1d1"
-, "#addbc7", "#b2ccdb"]
+// Colors Used
+const colors = [
+    "#4acf6e", "#55d4bf", 
+    "#54c0de","#7186f0",
+    "#9875eb","#e66565", 
+    "#e36d9a","#d9e874", 
+    "#e6bd6c", "#64d15a", 
+    "#665858","#e6e1d1", 
+    "#addbc7", "#b2ccdb"
+]
 
-let index = Math.floor(Math.random()*data.length);
-let index2 = Math.floor(Math.random()*colors.length);
+// An arrow function used to get a quote randomly
+const getQuote = () =>{
 
-let temp = data[index].split("-");
-let color = colors[index2];
+    // Generates a random number between 0 and the length of the dataset
+    let index = Math.floor(Math.random()*data.length);
 
-let quote = temp[0];
+    // Generates a random number between 0 and the number of colors used
+    let index2 = Math.floor(Math.random()*colors.length);
 
-let author = temp[1];
+    // Stores the quote present at the randomly generated index
+    let quote = data[index].text;
 
-document.getElementById("author").style.color=colors[index2];
-document.getElementById("quote").style.color=colors[index2];
-document.getElementById("text").style.color=colors[index2];
-document.getElementById("tweet").style.color=colors[index2];
-document.getElementById("new-quote").style.backgroundColor=colors[index2];
-document.getElementById("body").style.backgroundColor=colors[index2];
-document.getElementById("text").innerHTML= quote;
-document.getElementById("author").innerHTML = author;
+    // Stores the author of the respective quote
+    let author = data[index].author;
 
-let btn = document.getElementById("new-quote");
+    // Making the author anonymous if no author is present
+    if(!author){
+        author = "Anonymous"
+    }
 
-btn.addEventListener('click',()=>{
+    // Setting the color of the author box
+    document.getElementById("author").style.color=colors[index2];
 
-let index = Math.floor(Math.random()*data.length);
-let index2 = Math.floor(Math.random()*colors.length);
+    // Setting the color of the quote icon
+    document.getElementById("quote").style.color=colors[index2];
 
-let temp = data[index].split("-");
+    // Setting the color of the quote
+    document.getElementById("text").style.color=colors[index2];
 
-let quote = temp[0];
+    // Setting the color of the twitter icon
+    document.getElementById("tweet").style.color=colors[index2];
 
-let author = "-"+temp[1];
+    // Setting the color of the button
+    document.getElementById("new-quote").style.backgroundColor=colors[index2];
 
-document.getElementById("text").style.animation="text-box";
-document.getElementById("author").style.color=colors[index2];
-document.getElementById("quote").style.color=colors[index2];
-document.getElementById("text").style.color=colors[index2];
-document.getElementById("tweet").style.color=colors[index2];
-document.getElementById("new-quote").style.backgroundColor=colors[index2];
-document.getElementById("body").style.backgroundColor=colors[index2];
-document.getElementById("text").innerHTML= quote;
-document.getElementById("author").innerHTML = author;
-})
+    // Setting the color of the background
+    document.getElementById("body").style.backgroundColor=colors[index2];
+
+    // Replacing the current quote with a new one
+    document.getElementById("text").innerHTML= quote;
+
+    // Replacing the current author with a new one
+    document.getElementById("author").innerHTML = author;
+}
+
+// Fetching the quotes from the type.fit API using promises
+fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+        return response.json(); 
+    }) // Getting the raw JSON data
+    .then(function(d) {
+        this.data = d; // Storing the quotes internally upon successful completion of request
+        
+        // Displaying the quote When the Webpage loads
+        getQuote() 
+
+        
+        let btn = document.getElementById("new-quote");
+
+        // Adding an onclick listener for the button
+        btn.addEventListener('click',()=>{
+
+            // Displaying a new quote when the webpage loads
+            getQuote()
+        })
+});

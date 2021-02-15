@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
 body{
@@ -27,7 +28,7 @@ body{
   #text{
     background-color:white;
     font-size:30px;
-    padding:10px;
+    padding-left:10px;
     transition: 0.5s;
     transition-timing-function: ease-in;
     font-family: 'Roboto', sans-serif;
@@ -63,7 +64,6 @@ body{
     opacity: 0.6;
 }
 
-
   #author{
     margin:10px;
     align-self:flex-end;
@@ -78,7 +78,7 @@ body{
       to {opacity: 1;}
   }
   
- p{
-     margin-top: 5px;
-     text-align: center;
- }
+p{
+    margin-top: 5px;
+    text-align: center;
+}
