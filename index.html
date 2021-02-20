@@ -24,40 +24,58 @@
     <div>
 
     <!-- Quote Box -->
-    <div id = "quote-box">
+    <div class="block text-center">
+
+      <!-- Front part of the Quote Box -->
+    <div class = "quote-box block__main block__front">
 
       <!-- Quote to be Displayed Here -->
-      <span id = "quote">
+      <span class = "quote">
         
         <!-- Hyphen is Displayed  -->
         <i class="fas fa-2x fa-quote-left"></i>
 
         <!-- Quote Text -->
-        <span id = "text">
+        <span class = "text">
         Quote To be Displayed Here
         </span>
+        <i class="fas fa-2x fa-quote-right"></i>
+      </span>
+      
+      <!-- Author to be Displayed Here -->
+      <div class = "author">
+        Author to be Displayed Here
+      </div>
+      <a  class = "new-quote btn btn-default" onclick="newQuote()">Next Quote</a>
+    </div>
+
+    <!-- Back Part of the Quote Box -->
+    <div class = "quote-box block__main block__back">
+
+      <!-- Quote to be Displayed Here -->
+      <span class = "quote">
+        
+        <!-- Hyphen is Displayed  -->
+        <i class="fas fa-2x fa-quote-left"></i>
+
+        <!-- Quote Text -->
+        <span class = "text">
+        Quote To be Displayed Here
+        </span>
+        <i class="fas fa-2x fa-quote-right"></i>
 
       </span>
       
       <!-- Author to be Displayed Here -->
-      <div id = "author">
+      <div class = "author">
         Author to be Displayed Here
       </div>
-
-
-      <div>
-        <!-- Twitter Icon -->
-        <a  href="twitter.com/intent/tweet" class="btn col-xs-1"><i id="tweet" class="fab fa-3x fa-twitter-square"></i></a>
-
-        <!-- Gap Between Twitter Icon and Button -->
-        <div class="col-xs-7"></div>
-
         <!-- Button -->
-        <a  id = "new-quote" class="btn btn-default col-xs-4">New Quote</a>
-      </div>
-    
-      <!-- Name of the Creator -->
+        <a  class = "new-quote btn btn-default " onclick="newQuote()">Next Quote</a>
     </div>
+  </div>
+</div>
+    <!-- Name of the Creator -->
       <p>By: Srinivas</p>
     </div>
   
